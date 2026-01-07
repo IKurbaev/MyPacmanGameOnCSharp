@@ -1,0 +1,7 @@
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\bin\Debug\MyPacman.exe.config
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\bin\Debug\MyPacman.exe
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\bin\Debug\MyPacman.pdb
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\obj\Debug\MyPacman.csproj.AssemblyReference.cache
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\obj\Debug\MyPacman.csproj.CoreCompileInputs.cache
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\obj\Debug\MyPacman.exe
+C:\Users\Ivank\OneDrive\Документы\MyData\my_repo_for_cs\MyPacman\MyPacman\obj\Debug\MyPacman.pdb
