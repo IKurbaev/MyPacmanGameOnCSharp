@@ -23,7 +23,7 @@ namespace MyPacman
                 DrawMap(map);
                 DrawPlayer(playerY, playerX);
                 pressedKey = Console.ReadKey();
-                HandleInput(pressedKey, ref playerX, ref playerY);
+                HandleInput(pressedKey, map, ref playerX, ref playerY);
                 
 
                 Console.Clear();
@@ -31,21 +31,21 @@ namespace MyPacman
             
         }
 
-        private static void HandleInput(ConsoleKeyInfo pressedKey, ref int playerX, ref int playerY) 
+        private static void HandleInput(ConsoleKeyInfo pressedKey, char[,] map, ref int playerX, ref int playerY) 
         {
             switch (pressedKey.Key)
             {
                 case ConsoleKey.UpArrow:
-                    playerY--;
+                    if (map[playerY-1, playerX] == ' ') { playerY--; }
                     break;
                 case ConsoleKey.DownArrow:
-                    playerY++;
+                    if (map[playerY + 1, playerX] == ' ') { playerY++; }
                     break;
                 case ConsoleKey.RightArrow:
-                    playerX++;
+                    if (map[playerY, playerX+1] == ' ') { playerX++; }
                     break;
                 case ConsoleKey.LeftArrow:
-                    playerX--;
+                    if (map[playerY, playerX-1] == ' ') { playerX--; }
                     break;
             }
         }
