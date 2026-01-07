@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace MyPacman
 {
@@ -15,17 +16,29 @@ namespace MyPacman
             char[,] map = null;
             string[] file = File.ReadAllLines("map.txt");
             map = ReadMap(file);
-            int playerX = 1, playerY = 1;
-            ConsoleKeyInfo pressedKey;
+            int playerX = 1, playerY = 1, score = 0;
+            ConsoleKeyInfo pressedKey = new ConsoleKeyInfo();
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    pressedKey = Console.ReadKey();
+                }
+            });
 
             while (true)
             {
                 DrawMap(map);
+                Console.WriteLine($"\nScore = {score}");
                 DrawPlayer(playerY, playerX);
-                pressedKey = Console.ReadKey();
                 HandleInput(pressedKey, map, ref playerX, ref playerY);
-                
 
+                if (map[playerY, playerX] == '.') 
+                {
+                    map[playerY, playerX] = ' ';
+                    score++;
+                }
+                Thread.Sleep(100);
                 Console.Clear();
             }
             
