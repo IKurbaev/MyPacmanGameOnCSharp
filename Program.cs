@@ -36,16 +36,16 @@ namespace MyPacman
             switch (pressedKey.Key)
             {
                 case ConsoleKey.UpArrow:
-                    if (map[playerY-1, playerX] == ' ') { playerY--; }
+                    if (map[playerY-1, playerX] != '▓') { playerY--; }
                     break;
                 case ConsoleKey.DownArrow:
-                    if (map[playerY + 1, playerX] == ' ') { playerY++; }
+                    if (map[playerY + 1, playerX] != '▓') { playerY++; }
                     break;
                 case ConsoleKey.RightArrow:
-                    if (map[playerY, playerX+1] == ' ') { playerX++; }
+                    if (map[playerY, playerX+1] != '▓') { playerX++; }
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (map[playerY, playerX-1] == ' ') { playerX--; }
+                    if (map[playerY, playerX-1] != '▓') { playerX--; }
                     break;
             }
         }
