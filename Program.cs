@@ -11,12 +11,43 @@ namespace MyPacman
     {
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             char[,] map = null;
             string[] file = File.ReadAllLines("map.txt");
             map = ReadMap(file);
-            ShowMap(map);
+            int playerX = 1, playerY = 1;
+            ConsoleKeyInfo pressedKey;
 
-            Console.ReadKey();
+            while (true)
+            {
+                DrawMap(map);
+                DrawPlayer(playerY, playerX);
+                pressedKey = Console.ReadKey();
+                HandleInput(pressedKey, ref playerX, ref playerY);
+                
+
+                Console.Clear();
+            }
+            
+        }
+
+        private static void HandleInput(ConsoleKeyInfo pressedKey, ref int playerX, ref int playerY) 
+        {
+            switch (pressedKey.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    playerY--;
+                    break;
+                case ConsoleKey.DownArrow:
+                    playerY++;
+                    break;
+                case ConsoleKey.RightArrow:
+                    playerX++;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    playerX--;
+                    break;
+            }
         }
 
         private static char[,] ReadMap(string[] fileMap) 
@@ -33,7 +64,7 @@ namespace MyPacman
             return charMap;
         }
 
-        private static void ShowMap(char[,] map)
+        private static void DrawMap(char[,] map)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             for (int i = 0; i < map.GetLength(0); i++)
@@ -44,6 +75,14 @@ namespace MyPacman
                 }
                 Console.WriteLine();
             }
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        private static void DrawPlayer(int playerX, int playerY) 
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.SetCursorPosition(playerY, playerX);
+            Console.Write("@");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
